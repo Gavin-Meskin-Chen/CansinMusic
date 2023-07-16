@@ -690,7 +690,7 @@
       <div class="footer">
         <p class="author"
           >MADE BY
-          <a href="https://github.com/qier222" target="_blank">QIER222</a><span>|</span>DEPLOYED BY <a href="https://gavin-chen.top" target="_blank">GAVIN</a></p
+          <a href="https://github.com/qier222" target="_blank">QIER222</a></p
         >
         <p class="version">v{{ version }}</p>
 
@@ -1586,15 +1586,10 @@ input[type='number'] {
   font-weight: 600;
   .author {
     font-size: 0.9rem;
-    margin: 1em 0;
-    span {
-      margin: 0 5px;
-    }
   }
   .version {
     font-size: 0.88rem;
     opacity: 0.58;
-    margin: 1em 0;
   }
 }
 
