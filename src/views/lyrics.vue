@@ -582,6 +582,7 @@ export default {
   display: flex;
   margin: 0 auto;
   flex-direction: row;
+  width: 100%;
 }
 .lyrics-background {
   filter: blur(50px) contrast(var(--contrast-lyrics-background))
@@ -943,8 +944,12 @@ export default {
     font-size: 0.8;
     width: 100%;
   }
+  .right-side .lyrics-container .line {
+    padding: 12px 5px;
+  }
   .right-side {
     margin: 0;
+    padding: 0 10px;
   }
 }
 .slide-up-enter-active,
