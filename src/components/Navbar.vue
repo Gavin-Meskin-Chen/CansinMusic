@@ -280,6 +280,14 @@ nav.has-custom-titlebar {
   }
 }
 
+.search-box .container a {
+  display: flex;
+  align-items: center;
+  &:first-child {
+    cursor: default;
+  }
+}
+
 .navigation-links {
   flex: 1;
   display: flex;
