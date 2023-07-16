@@ -1586,10 +1586,12 @@ input[type='number'] {
   font-weight: 600;
   .author {
     font-size: 0.9rem;
+    margin: 1em 0;
   }
   .version {
     font-size: 0.88rem;
     opacity: 0.58;
+    margin: 1em 0;
   }
 }
 
