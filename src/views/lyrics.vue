@@ -814,6 +814,8 @@ export default {
   font-weight: 600;
   color: var(--color-text);
   margin: 24px 30px 24px 0;
+  -webkit-mask-image: linear-gradient(0deg,transparent,#fff 100px,#fff calc(100% - 100px),transparent);
+  mask-image: linear-gradient(0deg,transparent,#fff 100px,#fff calc(100% - 100px),transparent);
   z-index: 0;
 
   .lyrics-container {
