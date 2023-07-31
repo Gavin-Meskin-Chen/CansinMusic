@@ -748,8 +748,8 @@ export default {
 
       .svg-icon {
         opacity: 0.38;
-        height: 14px;
-        width: 14px;
+        height: 20px;
+        width: 20px;
       }
 
       .active .svg-icon {
