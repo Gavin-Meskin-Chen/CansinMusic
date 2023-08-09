@@ -510,6 +510,7 @@ export default {
         this.highlightLyricIndex = this.lyric.findIndex((l, index) => {
           const nextLyric = this.lyric[index + 1];
           speed = this.lyric[index].time;
+          console.log('当前时间：'+speed);
           return (
             progress >= l.time && (nextLyric ? progress < nextLyric.time : true)
           );
@@ -518,7 +519,7 @@ export default {
           const el = document.getElementById(`line${this.highlightLyricIndex}`);
           if (el) {
             var sp = el.querySelector('.content span');
-            sp.style.animation = 'lrcprogress ' + speed + 's linear infinite';
+            sp.style.animationDuration = speed + 's';
             el.scrollIntoView({
               behavior: 'smooth',
               block: 'center',
@@ -907,6 +908,9 @@ export default {
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
+        animation-name: lrcprogress;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
       }
 
       span.translation {
