@@ -506,14 +506,11 @@ export default {
       this.lyricsInterval = setInterval(() => {
         const progress = this.player.seek() ?? 0;
         var speed = 0;
+        var nowt = 0;
+        var next = 0;
         let oldHighlightLyricIndex = this.highlightLyricIndex;
         this.highlightLyricIndex = this.lyric.findIndex((l, index) => {
           const nextLyric = this.lyric[index + 1];
-          speed = this.lyric[index].time;
-          console.log('当前时间：' + speed);
-          console.log('下一时间：' + nextLyric.time);
-          console.log('\nprogress：' + progress);
-          console.log('\n+++++++++++++++++++++++++++++++++\n');
           return (
             progress >= l.time && (nextLyric ? progress < nextLyric.time : true)
           );
@@ -521,6 +518,13 @@ export default {
         if (oldHighlightLyricIndex !== this.highlightLyricIndex) {
           const el = document.getElementById(`line${this.highlightLyricIndex}`);
           if (el) {
+            nowt = this.lyric[index].time;
+            next = this.lyric[index + 1].time;
+            speed = next - nowt;
+            console.log('当前时间：' + nowt);
+            console.log('下一时间：' + next);
+            console.log('\nprogress：' + progress);
+            console.log('\n+++++++++++++++++++++++++++++++++\n');
             var sp = el.querySelector('.content span');
             sp.style.animationDuration = speed + 's';
             el.scrollIntoView({
