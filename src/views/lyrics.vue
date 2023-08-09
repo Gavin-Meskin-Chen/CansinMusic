@@ -518,8 +518,8 @@ export default {
         if (oldHighlightLyricIndex !== this.highlightLyricIndex) {
           const el = document.getElementById(`line${this.highlightLyricIndex}`);
           if (el) {
-            nowt = this.lyric[index].time;
-            next = this.lyric[index + 1].time;
+            nowt = this.lyric[this.highlightLyricIndex].time;
+            next = this.lyric[this.highlightLyricIndex + 1].time;
             speed = next - nowt;
             console.log('当前时间：' + nowt);
             console.log('下一时间：' + next);
