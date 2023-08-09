@@ -510,7 +510,10 @@ export default {
         this.highlightLyricIndex = this.lyric.findIndex((l, index) => {
           const nextLyric = this.lyric[index + 1];
           speed = this.lyric[index].time;
-          console.log('当前时间：'+speed);
+          console.log('当前时间：' + speed);
+          console.log('下一时间：' + nextLyric.time);
+          console.log('\nprogress：' + progress);
+          console.log('\n+++++++++++++++++++++++++++++++++\n');
           return (
             progress >= l.time && (nextLyric ? progress < nextLyric.time : true)
           );
