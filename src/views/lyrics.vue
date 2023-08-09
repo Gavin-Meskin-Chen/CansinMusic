@@ -505,20 +505,25 @@ export default {
     setLyricsInterval() {
       this.lyricsInterval = setInterval(() => {
         const progress = this.player.seek() ?? 0;
+        var speed = 0;
         let oldHighlightLyricIndex = this.highlightLyricIndex;
         this.highlightLyricIndex = this.lyric.findIndex((l, index) => {
           const nextLyric = this.lyric[index + 1];
+          speed = this.lyric[index].time;
           return (
             progress >= l.time && (nextLyric ? progress < nextLyric.time : true)
           );
         });
         if (oldHighlightLyricIndex !== this.highlightLyricIndex) {
           const el = document.getElementById(`line${this.highlightLyricIndex}`);
-          if (el)
+          if (el) {
+            var sp = el.querySelector('.content span');
+            sp.style.animation = 'lrcprogress ' + speed + 's linear infinite';
             el.scrollIntoView({
               behavior: 'smooth',
               block: 'center',
             });
+          }
         }
       }, 50);
     },
@@ -624,6 +629,15 @@ export default {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes lrcprogress {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
   }
 }
 
@@ -882,6 +896,17 @@ export default {
       span {
         opacity: 0.98;
         display: inline-block;
+        background: linear-gradient(
+          to right,
+          var(--color-text) 0%,
+          var(--color-text) 50%,
+          rgba(255, 255, 255, 0.28) 50%,
+          rgba(255, 255, 255, 0.28) 100%
+        );
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
       span.translation {
