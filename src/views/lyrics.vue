@@ -505,9 +505,9 @@ export default {
     setLyricsInterval() {
       this.lyricsInterval = setInterval(() => {
         const progress = this.player.seek() ?? 0;
-        var speed = 0;
-        var nowt = 0;
-        var next = 0;
+        // var speed = 0;
+        // var nowt = 0;
+        // var next = 0;
         let oldHighlightLyricIndex = this.highlightLyricIndex;
         this.highlightLyricIndex = this.lyric.findIndex((l, index) => {
           const nextLyric = this.lyric[index + 1];
@@ -518,15 +518,11 @@ export default {
         if (oldHighlightLyricIndex !== this.highlightLyricIndex) {
           const el = document.getElementById(`line${this.highlightLyricIndex}`);
           if (el) {
-            nowt = this.lyric[this.highlightLyricIndex].time;
-            next = this.lyric[this.highlightLyricIndex + 1].time;
-            speed = next - nowt;
-            console.log('当前时间：' + nowt);
-            console.log('下一时间：' + next);
-            console.log('\nprogress：' + progress);
-            console.log('\n+++++++++++++++++++++++++++++++++\n');
-            var sp = el.querySelector('.content span');
-            sp.style.animationDuration = speed + 's';
+            // nowt = this.lyric[this.highlightLyricIndex].time;
+            // next = this.lyric[this.highlightLyricIndex + 1].time;
+            // speed = next - nowt;
+            // var sp = el.querySelector('.content span');
+            // sp.style.animationDuration = speed + 's';
             el.scrollIntoView({
               behavior: 'smooth',
               block: 'center',
@@ -904,20 +900,6 @@ export default {
       span {
         opacity: 0.98;
         display: inline-block;
-        background: linear-gradient(
-          to right,
-          var(--color-text) 0%,
-          var(--color-text) 50%,
-          rgba(255, 255, 255, 0.28) 50%,
-          rgba(255, 255, 255, 0.28) 100%
-        );
-        background-size: 200% 100%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation-name: lrcprogress;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
       }
 
       span.translation {
