@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:match*",
-      "destination": "https://netease-api.cansin.top/:match*"
+      "destination": "https://netease-api.cancin.cn/:match*"
     }
   ]
 }
